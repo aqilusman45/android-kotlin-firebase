@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        tools:context=".MainActivity">
+
+
+        <EditText
+            android:id="@+id/phone_number_input_signin"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/field_height"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@android:color/white"
+            android:drawablePadding="@dimen/field_padding"
+            android:ems="10"
+            android:hint="@string/phone_number_hint"
+            android:inputType="phone"
+            android:padding="@dimen/field_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/signin_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/signin_button"
+            app:layout_constraintEnd_toEndOf="@+id/phone_number_input_signin"
+            app:layout_constraintStart_toStartOf="@+id/phone_number_input_signin"
+            app:layout_constraintTop_toBottomOf="@+id/phone_number_input_signin" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<layout xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    xmlns:android="http://schemas.android.com/apk/res/android">-->
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:background="@android:color/holo_green_light"-->
+    <!--        tools:context=".MainActivity">-->
+
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/email_edittext_login"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="@dimen/field_height"-->
+    <!--            android:layout_marginStart="@dimen/margin_left"-->
+    <!--            android:layout_marginLeft="@dimen/margin_left"-->
+    <!--            android:layout_marginTop="@dimen/margin_top"-->
+    <!--            android:layout_marginEnd="@dimen/margin_right"-->
+    <!--            android:layout_marginRight="@dimen/margin_right"-->
+    <!--            android:background="@android:color/background_light"-->
+    <!--            android:ems="10"-->
+    <!--            android:hint="@string/hint_email"-->
+    <!--            android:inputType="textEmailAddress"-->
+    <!--            android:padding="@dimen/field_padding"-->
+    <!--            android:textColor="@android:color/black"-->
+    <!--            android:textColorHint="@color/colorPrimary"-->
+    <!--            app:layout_constraintBottom_toTopOf="@+id/password_edittext_login"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.0"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/password_edittext_login"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="@dimen/field_height"-->
+    <!--            android:background="@android:color/background_light"-->
+    <!--            android:ems="10"-->
+    <!--            android:layout_marginTop="@dimen/margin_top"-->
+    <!--            android:hint="@string/hint_password"-->
+    <!--            android:inputType="textPassword"-->
+    <!--            android:padding="@dimen/field_padding"-->
+    <!--            android:textColorHint="@color/colorPrimary"-->
+    <!--            app:layout_constraintEnd_toEndOf="@+id/email_edittext_login"-->
+    <!--            app:layout_constraintHorizontal_bias="0.0"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/email_edittext_login"-->
+    <!--            app:layout_constraintStart_toStartOf="@+id/email_edittext_login"-->
+    <!--            tools:layout_editor_absoluteY="198dp" />-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/submit_button_login"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="@dimen/margin_top"-->
+    <!--            android:background="@color/colorAccent"-->
+    <!--            android:text="@string/register_button"-->
+    <!--            app:layout_constraintEnd_toEndOf="@+id/password_edittext_login"-->
+    <!--            app:layout_constraintHorizontal_bias="1.0"-->
+    <!--            app:layout_constraintStart_toStartOf="@+id/password_edittext_login"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/password_edittext_login" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/new_user_text_login"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="@dimen/margin_top"-->
+    <!--            android:text="@string/new_user_link_login"-->
+    <!--            android:textSize="18sp"-->
+    <!--            app:layout_constraintEnd_toEndOf="@+id/submit_button_login"-->
+    <!--            app:layout_constraintStart_toStartOf="@+id/submit_button_login"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/submit_button_login" />-->
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--</layout>-->

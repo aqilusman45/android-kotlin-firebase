@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/otp_verification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:id="@+id/otp_code_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/field_height"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:ems="10"
+            android:hint="@string/otp_code_hint"
+            android:inputType="number"
+            android:padding="@dimen/field_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:autofillHints="" />
+
+        <Button
+            android:id="@+id/otp_submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/otp_verify"
+            app:layout_constraintEnd_toEndOf="@+id/otp_code_edittext"
+            app:layout_constraintStart_toStartOf="@+id/otp_code_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/otp_code_edittext" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

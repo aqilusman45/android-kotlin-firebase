@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">KotlinMessenger</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_email">E-mail</string>
+    <string name="register_button">Register</string>
+    <string name="existing_user_link">Already a User? Login.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_user_link_login">Not a User? Register.</string>
+    <string name="phone_number_hint">+92xxx-xxxxx-xx</string>
+    <string name="signin_button">Sign In</string>
+    <string name="otp_code_hint">OTP code</string>
+    <string name="otp_verify">Verify</string>
+    <string name="dashboard_text">My Dashboard</string>
+    <string name="signout_button_text">Sign Out</string>
+</resources>
