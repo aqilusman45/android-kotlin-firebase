@@ -26,6 +26,10 @@ class LoginFragment : Fragment() {
     lateinit var phoneLogin : PhoneAuthProvider
     lateinit var binding: FragmentLoginBinding
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    object State {
+        var phone: String = ""
+        var creds: String = ""
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,13 +52,17 @@ class LoginFragment : Fragment() {
             }
 
             override fun onCodeSent(p0: String, p1: PhoneAuthProvider.ForceResendingToken) {
-                val creds = bundleOf("creds" to p0)
-                view!!.findNavController().navigate(R.id.action_loginFragment_to_otpFragment, creds)
+                State.creds = p0
+                view!!.findNavController().navigate(R.id.action_loginFragment_to_otpFragment)
             }
         }
         binding.signinButton.setOnClickListener{
+            State.phone =  binding.phoneNumberInputSignin.text.toString()
+            Toast.makeText( activity ,"${State.phone}",Toast.LENGTH_LONG).show()
+
             this.sendVerificationCode(binding.phoneNumberInputSignin.text.toString())
         }
+
         return binding.root
     }
 
