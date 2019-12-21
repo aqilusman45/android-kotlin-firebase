@@ -2,10 +2,13 @@ package com.example.kotlinmessenger
 
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
@@ -15,23 +18,25 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 
-/**
- * A simple [Fragment] subclass.
- */
 class OtpFragment : Fragment() {
     lateinit var auth: FirebaseAuth
+    lateinit var binding: FragmentOtpBinding
+    internal  var phone: String = ""
+    private lateinit var countDownTimer: CountDownTimer
+    internal val countDown: Long = 30000
+    internal val countDownInterval: Long = 1000
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        startTimer()
         auth = FirebaseAuth.getInstance()
-        val binding = DataBindingUtil.inflate<FragmentOtpBinding>(inflater, R.layout.fragment_otp, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_otp, container, false)
+        binding.otpResendButton.visibility = Button.INVISIBLE
         binding.otpSubmitButton.setOnClickListener{
-            Toast.makeText(activity, "hahaha ${arguments!!.getString("creds").toString()}, ${binding.otpCodeEdittext.text} ", Toast.LENGTH_LONG).show()
             val credential = PhoneAuthProvider.getCredential(arguments!!.getString("creds").toString(), "${binding.otpCodeEdittext.text}")
             this.createUserWithPhoneAuthCreds(credential)
         }
-
         return binding.root
     }
 
@@ -39,7 +44,7 @@ class OtpFragment : Fragment() {
         auth.signInWithCredential(creds)
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    Toast.makeText( activity ,"${auth.currentUser!!.uid}",Toast.LENGTH_LONG).show()
+                    Toast.makeText( activity ,"Logged In",Toast.LENGTH_LONG).show()
                     view!!.findNavController().navigate(R.id.action_otpFragment_to_dashboardFragment)
                 }else{
                     if (it.exception is FirebaseAuthInvalidCredentialsException) Toast.makeText( activity ,"${creds.smsCode.toString()}",Toast.LENGTH_LONG).show()
@@ -47,4 +52,16 @@ class OtpFragment : Fragment() {
             }
     }
 
+    private fun startTimer (){
+        countDownTimer =  object : CountDownTimer( countDown, countDownInterval ) {
+            override fun onTick(millisUntilFinished: Long) {
+                binding.otpTimerText.text = "${millisUntilFinished/1000}"
+            }
+
+            override fun onFinish() {
+                    binding.otpResendButton.visibility = Button.VISIBLE
+                    binding.otpTimerText.visibility = TextView.INVISIBLE
+            }
+        }.start()
+    }
 }

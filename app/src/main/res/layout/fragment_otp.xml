@@ -19,22 +19,47 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/otp_code_hint"
             android:inputType="number"
             android:padding="@dimen/field_padding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:autofillHints="" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/otp_submit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="@string/otp_verify"
+            app:layout_constraintEnd_toEndOf="@+id/otp_code_edittext"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/otp_code_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/otp_resend_button" />
+
+        <TextView
+            android:id="@+id/otp_timer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="@+id/otp_code_edittext"
             app:layout_constraintStart_toStartOf="@+id/otp_code_edittext"
             app:layout_constraintTop_toBottomOf="@+id/otp_code_edittext" />
+
+        <Button
+            android:id="@+id/otp_resend_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/resend_otp"
+            app:layout_constraintBottom_toTopOf="@+id/otp_submit_button"
+            app:layout_constraintEnd_toEndOf="@+id/otp_code_edittext"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="@+id/otp_code_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/otp_timer_text" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

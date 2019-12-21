@@ -9,6 +9,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="new_user_link_login">Not a User? Register.</string>
     <string name="phone_number_hint">+92xxx-xxxxx-xx</string>
+    <string name="resend_otp">Resend Code</string>
     <string name="signin_button">Sign In</string>
     <string name="otp_code_hint">OTP code</string>
     <string name="otp_verify">Verify</string>
