@@ -27,7 +27,6 @@ class OtpFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         val binding = DataBindingUtil.inflate<FragmentOtpBinding>(inflater, R.layout.fragment_otp, container, false)
         binding.otpSubmitButton.setOnClickListener{
-            Toast.makeText(activity, "hahaha ${arguments!!.getString("creds").toString()}, ${binding.otpCodeEdittext.text} ", Toast.LENGTH_LONG).show()
             val credential = PhoneAuthProvider.getCredential(arguments!!.getString("creds").toString(), "${binding.otpCodeEdittext.text}")
             this.createUserWithPhoneAuthCreds(credential)
         }
